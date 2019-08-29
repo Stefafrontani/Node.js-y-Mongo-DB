@@ -1,0 +1,9 @@
+alumni.education
+
+username: mail registrado
+password: dni
+
+Si no se puede => consultar administracion
+
+ravilla.educacionit@gmail.com
+
