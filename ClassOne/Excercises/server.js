@@ -3,6 +3,8 @@ const http = require('http');
 const hostname = 'localhost';
 const port = 8080;
 
+const home     = require('./home');
+
 const server = http.createServer((req, res) => {
   res.setHeader("Content-Type", "text/html");
 
