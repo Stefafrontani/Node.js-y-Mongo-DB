@@ -4,6 +4,7 @@ const hostname = 'localhost';
 const port = 8080;
 
 const home     = require('./home');
+const users    = require('./users');
 
 const server = http.createServer((req, res) => {
   res.setHeader("Content-Type", "text/html");
