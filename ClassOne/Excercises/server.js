@@ -6,6 +6,7 @@ const port = 8080;
 const template = require('./template');
 
 const server = http.createServer((req, res) => {
+  res.setHeader("Content-Type", "text/html");
   res.end(template);
 });
 
