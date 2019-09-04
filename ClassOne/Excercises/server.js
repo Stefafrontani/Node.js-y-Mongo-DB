@@ -12,6 +12,22 @@ const server = http.createServer((req, res) => {
   res.setHeader("Content-Type", "text/html");
 
   const { url } = req;
+  switch(url) {
+    case '/':
+      res.write(home);
+      break;
+    case '/profile':
+      res.write(profile);
+      break;
+    case '/users':
+      res.write(users);
+      break;
+    case '/messages':
+      res.write(messages);
+      break;
+    default:
+      break;
+  }
 
   res.end(template);
 });
