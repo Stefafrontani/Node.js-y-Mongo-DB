@@ -6,6 +6,7 @@ const port = 8080;
 const home     = require('./home');
 const users    = require('./users');
 const profile  = require('./profile');
+const messages = require('./messages');
 
 const server = http.createServer((req, res) => {
   res.setHeader("Content-Type", "text/html");
