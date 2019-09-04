@@ -7,6 +7,9 @@ const template = require('./template');
 
 const server = http.createServer((req, res) => {
   res.setHeader("Content-Type", "text/html");
+
+  const { url } = req;
+
   res.end(template);
 });
 
