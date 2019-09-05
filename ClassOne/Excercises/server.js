@@ -37,6 +37,10 @@ const server = http.createServer((req, res) => {
       res.setHeader("Content-Type", "application/json");
       res.write(JSON.stringify(apiUsers, null, 2));
       break;
+    case '/api/posts':
+      res.setHeader("Content-Type", "application/json");
+      res.write(JSON.stringify(apiPosts, null, 2));
+      break;
     default:
       break;
   }
