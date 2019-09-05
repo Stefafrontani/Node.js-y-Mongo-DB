@@ -10,7 +10,7 @@ const messages = require('./messages');
 
 const server = http.createServer((req, res) => {
   res.setHeader("Content-Type", "text/html");
-
+  
   const { url } = req;
   switch(url) {
     case '/':
@@ -28,8 +28,7 @@ const server = http.createServer((req, res) => {
     default:
       break;
   }
-
-  res.end(template);
+  res.end();
 });
 
 server.listen(port, hostname, () => {
