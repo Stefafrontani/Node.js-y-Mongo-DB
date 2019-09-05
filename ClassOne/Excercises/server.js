@@ -14,20 +14,23 @@ const apiMessages = require('./api/messages.json');
 const apiPosts = require('./api/posts.json');
 
 const server = http.createServer((req, res) => {
-  res.setHeader("Content-Type", "text/html");
   
   const { url } = req;
   switch(url) {
     case '/':
+      res.setHeader("Content-Type", "text/html");
       res.write(home);
       break;
     case '/profile':
+      res.setHeader("Content-Type", "text/html");
       res.write(profile);
       break;
     case '/users':
+      res.setHeader("Content-Type", "text/html");
       res.write(users);
       break;
     case '/messages':
+      res.setHeader("Content-Type", "text/html");
       res.write(messages);
       break;
     default:
