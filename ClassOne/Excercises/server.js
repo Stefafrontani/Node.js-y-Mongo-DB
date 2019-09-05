@@ -1,17 +1,17 @@
-const http = require('http');
-const home = require('./home');
-const users = require('./users');
-const profile  = require('./profile');
-const messages = require('./messages');
-const apiUsers = require('./api/users.json');
+const http        = require('http');
+const home        = require('./home');
+const users       = require('./users');
+const profile     = require('./profile');
+const messages    = require('./messages');
+const apiUsers    = require('./api/users.json');
 const apiComments = require('./api/comments.json');
 const apiMessages = require('./api/messages.json');
-const apiPosts = require('./api/posts.json');
+const apiPosts    = require('./api/posts.json');
 
 const hostname = 'localhost';
-const port = 8080;
+const port     = 8080;
 
-const server = http.createServer((req, res) => {
+const server   = http.createServer((req, res) => {
   
   const { url } = req;
   switch(url) {
