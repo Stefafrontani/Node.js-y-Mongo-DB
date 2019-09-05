@@ -1,17 +1,15 @@
 const http = require('http');
-
-const hostname = 'localhost';
-const port = 8080;
-
-const home     = require('./home');
-const users    = require('./users');
+const home = require('./home');
+const users = require('./users');
 const profile  = require('./profile');
 const messages = require('./messages');
-
 const apiUsers = require('./api/users.json');
 const apiComments = require('./api/comments.json');
 const apiMessages = require('./api/messages.json');
 const apiPosts = require('./api/posts.json');
+
+const hostname = 'localhost';
+const port = 8080;
 
 const server = http.createServer((req, res) => {
   
