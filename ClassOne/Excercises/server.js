@@ -8,9 +8,11 @@ const users    = require('./users');
 const profile  = require('./profile');
 const messages = require('./messages');
 
+const apiUsers = require('./api/users.json');
+
 const server = http.createServer((req, res) => {
   res.setHeader("Content-Type", "text/html");
-  
+
   const { url } = req;
   switch(url) {
     case '/':
