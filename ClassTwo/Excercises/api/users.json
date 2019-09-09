@@ -2,16 +2,16 @@
     {
         "name": "Bruno",
         "surname": "Frontani",
-        "age": "This is comment 1"
+        "age": 20
     },
     {
         "name": "Stefano",
         "surname": "Frontani",
-        "age": "This is comment 2"
+        "age": 25
     },
     {
         "name": "Giacomo",
         "surname": "Frontani",
-        "age": "This is comment 3"
+        "age": 28
     }
 ]
