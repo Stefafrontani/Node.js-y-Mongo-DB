@@ -4,7 +4,11 @@ const profile  = require('./static/templates/profile.js');
 const users    = require('./static/templates/users.js');
 const messages = require('./static/templates/messages.js');
 
+const apiRouter = require('./router.js');
+
 const app = express();
+
+app.use('/api', apiRouter);
 
 app.get("/", (req, res) => {
     res.set('Content-Type', 'text/html');
@@ -19,9 +23,9 @@ app.get("/home", (req, res) => {
 });
 
 app.get("/profile", (req, res) => {
-  res.set('Content-Type', 'text/html');
-  res.status(200);
-  res.end(profile);
+    res.set('Content-Type', 'text/html');
+    res.status(200);
+    res.end(profile);
 });
 
 app.get("/messages", (req, res) => {
