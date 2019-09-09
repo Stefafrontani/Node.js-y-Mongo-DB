@@ -19,9 +19,15 @@ app.get("/home", (req, res) => {
 });
 
 app.get("/profile", (req, res) => {
-    res.set('Content-Type', 'text/html');
-    res.status(200);
-    res.end(profile);
+  res.set('Content-Type', 'text/html');
+  res.status(200);
+  res.end(profile);
+});
+
+app.get("/messages", (req, res) => {
+  res.set('Content-Type', 'text/html');
+  res.status(200);
+  res.end(messages);
 });
 
 app.listen(port = 3000, () => {
