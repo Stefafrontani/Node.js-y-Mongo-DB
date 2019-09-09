@@ -1,11 +1,21 @@
 const express  = require('express');
+const index    = require('./static/templates/index.js');
+const profile  = require('./static/templates/profile.js');
+const users    = require('./static/templates/users.js');
+const messages = require('./static/templates/messages.js');
 
 const app = express();
 
 app.get("/", (req, res) => {
     res.set('Content-Type', 'text/html');
     res.status(200);
-    res.send('Server is running!');
+    res.send(index('HOME'));
+});
+
+app.get("/home", (req, res) => {
+    res.set('Content-Type', 'text/html');
+    res.status(200);
+    res.send(index('HOME'));
 });
 
 app.listen(port = 3000, () => {
