@@ -18,6 +18,12 @@ app.get("/home", (req, res) => {
     res.send(index('HOME'));
 });
 
+app.get("/profile", (req, res) => {
+    res.set('Content-Type', 'text/html');
+    res.status(200);
+    res.end(profile);
+});
+
 app.listen(port = 3000, () => {
     console.log(`Server running on port: ${port}`)
 })
