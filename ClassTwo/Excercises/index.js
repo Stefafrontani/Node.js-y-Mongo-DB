@@ -8,6 +8,7 @@ const apiRouter = require('./router.js');
 
 const app = express();
 
+app.use('/static', express.static('static/html'));
 app.use('/api', apiRouter);
 
 app.get("/", (req, res) => {
