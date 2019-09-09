@@ -30,6 +30,12 @@ app.get("/messages", (req, res) => {
   res.end(messages);
 });
 
+app.get("/users", (req, res) => {
+    res.set('Content-Type', 'text/html');
+    res.status(200);
+    res.send(users);
+});
+
 app.listen(port = 3000, () => {
     console.log(`Server running on port: ${port}`)
 })
