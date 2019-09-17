@@ -12,6 +12,8 @@ const motorhandlebars = exphbs({
 app.set('view engine', 'hbs');
 app.engine("hbs", motorhandlebars);
 
+app.use(express.static('content'));
+
 app.listen(port, () => {
   console.log(`Server listening on port: ${port}`)
 })
