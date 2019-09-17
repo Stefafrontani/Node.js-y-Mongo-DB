@@ -58,6 +58,42 @@ app.get("/peopleTwo", (req, res) => {
   })
 })
 
+let peopleThree = [
+    {
+        name: 'Bruno',
+        surname: 'Frontani'
+    },
+    {
+        name: 'Stefano',
+        surname: 'Frontani'
+    },
+    {
+        name: 'Giacomof',
+        surname: 'Frontani'
+    }
+]
+
+app.route("/peopleThree")
+    .get((req, res) => {
+        let data = {
+            names: peopleThree
+        }
+        res.render("peopleThree", data)
+    })
+    .post((req, res) => {
+        let newPerson = {
+            name: req.body.name,
+            surname: req.body.surname,
+        }
+
+        peopleThree = [ ...peopleThree, newPerson ];
+    
+        let data = {
+            names: peopleThree
+        };
+        res.render("peopleThree", data);
+    })
+
 app.listen(3000,() => {
     console.log("Servidor listo");
 });
