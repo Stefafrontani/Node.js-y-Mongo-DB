@@ -19,6 +19,11 @@ app.route('/')
     res.render('index')
   })
 
+app.route('/users')
+  .get((req, res) => {
+    res.render('users')
+  })
+
 app.listen(port, () => {
   console.log(`Server listening on port: ${port}`)
 })
