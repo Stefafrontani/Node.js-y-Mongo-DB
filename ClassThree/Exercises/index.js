@@ -21,7 +21,22 @@ app.route('/')
 
 app.route('/users')
   .get((req, res) => {
-    res.render('users')
+    const links = [
+      {
+        displayName: 'home',
+        href: '/'
+      },
+      {
+        displayName: 'users',
+        href: '/users'
+      }
+    ];
+
+    const data = {
+      links: links
+    }
+
+    res.render('users', data)
   })
 
 app.listen(port, () => {
