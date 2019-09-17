@@ -14,6 +14,11 @@ app.engine("hbs", motorhandlebars);
 
 app.use(express.static('content'));
 
+app.route('/')
+  .get((req, res) => {
+    res.render('index')
+  })
+
 app.listen(port, () => {
   console.log(`Server listening on port: ${port}`)
 })
