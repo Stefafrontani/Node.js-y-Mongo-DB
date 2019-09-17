@@ -9,6 +9,9 @@ const motorhandlebars = exphbs({
   defaultLayout: 'defaultLayout', // defaultLayout when no specify in res.render('view', { layout: 'zzz' })
 });
 
+app.set('view engine', 'hbs');
+app.engine("hbs", motorhandlebars);
+
 app.listen(port, () => {
   console.log(`Server listening on port: ${port}`)
 })
