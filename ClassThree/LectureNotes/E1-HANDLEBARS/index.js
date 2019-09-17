@@ -11,6 +11,9 @@ const motorhandlebars = exphbs.create({
 app.engine("hbs", motorhandlebars.engine);
 app.set("view engine", "hbs");
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.listen(3000,() => {
     console.log("Servidor listo");
 });
