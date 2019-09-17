@@ -41,7 +41,7 @@ app.get("/people", (req, res) => {
       "Giacomo"
   ]
 
-  res.render("names", {
+  res.render("people", {
       names: names
   })
 })
