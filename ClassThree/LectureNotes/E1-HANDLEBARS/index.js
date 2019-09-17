@@ -46,6 +46,18 @@ app.get("/people", (req, res) => {
   })
 })
 
+app.get("/peopleTwo", (req, res) => {
+  let names = [
+      { name: "Bruno", surname: "Frontani" },
+      { name: "Stefano", surname: "Frontani" },
+      { name: "Giacomof", surname: "Frontani" },
+  ]
+
+  res.render("peopleTwo", {
+      names: names
+  })
+})
+
 app.listen(3000,() => {
     console.log("Servidor listo");
 });
