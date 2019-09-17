@@ -1,0 +1,69 @@
+Handlebars
+
+Template engine, based on mustache.
+
+It must be configured
+
+Can be used
+- server side -> You prepare de view with the data and send the final piece
+- front side -> You take the data and prepare the page front-side
+
+Structure
+Layout:
+- Common for every hbs render
+Views:
+- Its what fills the layout
+
+File Structure
+Views
+  -- Layout:
+    -- main.hbs // The skeleton
+  -- partials:
+    -- partialOne.hbs
+    -- partialTwo.hbs
+    -- partialThree.hbs
+  viewOne.hbs
+  viewTwo.hbs
+  viewThree.hbs
+
+The layout
+- Has the html structure !DOCTYPE...
+- Renders {{ body }}. Search in views folder for .hbs files
+
+The views
+- Are looked for the hbs engine to fill the {{ body }} inside the layout
+
+The partials
+- Are added inside a hbs file like: {{> partialOne }}
+
+Respond .hbs
+- response.render('file.hbs', dataWithVariables)
+
+Variables
+- You have to place variables inside {{}}. E.g.: {{ dataWithVariables }}
+- You have to respond with an object containing the keys with the name of the variables that are going to be used by the view.
+
+Operators, Conditionals, etc.
+- for: 
+  {{#each names}}
+      {{> person}}
+  {{/each}}
+
+- if:
+  {{#if names}}
+      <ul>
+          <li> liOne </li>
+          <li> liTwo </li>
+      </ul>
+  {{else}}
+      <p> pOne </p>
+  {{/if}}
+
+
+Body parser 
+- Used to gather up all the chunks of the post request
+- Only when all chunks are toghether is when you have the request available.
+- In every post request it is encharge of doing the same proccess
+  - Put toghether all chunks
+  - Listen when the first task is finished
+  - Attach al body de la request
