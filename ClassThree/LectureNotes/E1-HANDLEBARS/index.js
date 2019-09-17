@@ -34,6 +34,18 @@ app.route("/count")
         res.render("countResult", data);
     })
 
+app.get("/people", (req, res) => {
+  let names = [
+      "Bruno",
+      "Stefano",
+      "Giacomo"
+  ]
+
+  res.render("names", {
+      names: names
+  })
+})
+
 app.listen(3000,() => {
     console.log("Servidor listo");
 });
