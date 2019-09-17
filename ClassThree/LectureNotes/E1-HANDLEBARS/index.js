@@ -18,6 +18,22 @@ app.get("/", (req,res) => {
     res.render("index");
 })
 
+app.route("/count")
+    .get((req,res) => {
+        res.render("count");
+    })
+    .post((req,res) => {
+        let valueA = Number(req.body.valorA);
+        let valueB = Number(req.body.valorB);
+        let sumresult = valueA + valueB;
+        let data = {
+            valueA: valueA,
+            valueB: valueB,
+            result: sumresult,
+        };
+        res.render("countResult", data);
+    })
+
 app.listen(3000,() => {
     console.log("Servidor listo");
 });
