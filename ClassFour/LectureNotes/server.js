@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
+const content = require('./modules/content');
 const aboutRouter = require('./routers/about.js');
 
 app.use(express.static("content"));
@@ -30,21 +31,19 @@ app.get(['/', '/index'], (req, res) => {
 
 app.use('/about', aboutRouter);
 
-let data = [
-  { text: 'Data 1' },
-  { text: 'Data 2' },
-  { text: 'Data 3' }
-]
-
 app.get("/content", (req, res) => {
+  content.getAll((err, data) => {
     res.render("content", { items: data });
+  })
 });
 
 app.post("/content", (req, res) => {
-    const newText = req.body.text;
-    data.push({ text: newText })
-    res.render("content", { items: data });
-    
+  const newText = req.body.text;
+  content.insert({ text: newText }, () => {
+    content.getAll((err, data) => {
+      res.render("content", { items: data });
+    })
+  });
 });
 
 const port = 3000;
