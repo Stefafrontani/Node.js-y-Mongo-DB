@@ -1,0 +1,18 @@
+{{#if items}}
+    <section class="center">
+        <img src="images/node-express-mongo.jpg"><br>
+        <h3> In this course you will learn </h3>
+        <ul>
+            {{#each items }}
+            <li> {{ this.text }}</li>
+            {{/each}}
+        </ul>
+    </section>
+{{else}}
+    <h4> There's no content </h4>
+{{/if}}
+<h2> Add some new content </h2>
+<form method="POST">
+    <input type="text" name="text" /><br>
+    <input type="submit" />
+</form>
