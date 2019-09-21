@@ -1,0 +1,108 @@
+Empieza cuando hay apis con muchas grande
+
+** Relational tables.  ** 
+Structure
+- Data base engine
+    - Data bases
+        - Schemes
+            - Tables
+                - Columns
+                    - Data type
+                    - Size
+
+Advantages
+- We do OOP and relational tables has a similar structure to work with
+
+Disadvantages
+- Validations to do any operations requires resources and times.
+I.e.: Based-on-schemes data bases, when we insert data, the engine must verifiy that that data follows every validation we decide to have. That requires time and resources.
+
+MongoDB
+
+Ventajas
+- No need for validations
+
+Desventajas
+- Not so secure
+
+Products
+- MongoDB Atlas
+Let you store in cloud, gives you services related to AWS, etc.
+- MongoDB Server
+- MongoDB Compass
+Graphic interface
+
+Mongod: servidor
+
+Mongo: Interact with the server
+
+C:\Program Files\MongoDB\Server\3.6\bin>mongod => deja la conecxion
+C:\Program Files\MongoDB\Server\3.6\bin>mongo => shell
+
+Mongo
+- Let you write javascript.
+- Has a variable call 'db' // test
+
+Mongo Engine
+    - Data bases
+        - Collection
+            - Ddocuments : Its a documental databse => saves documents
+
+Comandos
+** General
+- db 
+// test
+- use webstore
+// switched to db webstore
+- show dbs -> empieza a mostrar la base de datos
+// admin   0.000GB
+// config  0.000GB
+// local   0.000GB
+// webstore  0.000GB
+
+** Documents
+// admin     0.000GB
+// config    0.000GB
+// local     0.000GB
+
+** Insert
+- db.products.insert({ "name": "mouse", "description": "Mouse logitech",  })
+
+** Find
+- db.products.find() // Gives you everything
+- db.products.drop() // Removes collection
+- db.createCollection("products") // Creates collection
+- db.products.find({ name: "Notebook", model: "Acer" })
+- db.products.find({ name: "Notebook", model: "Acer" })
+
+** Find w/ pretty
+- db.products.find().pretty()
+
+- db.products.find({ name: "Notebook" }, { nane: "1", "model": 1 }) 
+// name: notebook === // Where
+// name: 1 && model: 1 === // Columns you want
+
+** Find w/ sort
+- db.products.find().sort({ model: 1 }) // Asc
+- db.products.find().sort({ model: -1 }) // Desc
+
+** Find w/ sort and limit
+- db.products.find().sort({ model: -1 }).limit(2) // limit
+
+** Find w/ foreach
+-db.products.find({ name: "Notebook" }).forEach((product) => print("The product has is " + product.model))
+
+** Update
+Update - Overriding
+- db.products.update({ name: "notebook" }, { model: "modelUpdated" }) // Replace object found with object { model: "modelUpdated" }
+
+Update - No overriding
+- db.products.update({ name: "notebook" },  { "$set": { name: "notebook Updated" }} ) // NO replace object found with object { model: "modelUpdated" } . Only adds prop
+
+Update - No Overriding - If theres no document, it creates it
+
+** Remove
+db.products.remove({}) // Erase everything
+
+** For Joining functionality
+$lookup => join de sql
