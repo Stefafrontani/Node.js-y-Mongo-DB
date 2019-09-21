@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
-const content = require('./modules/content');
 const aboutRouter = require('./routers/about.js');
 
 app.use(express.static("content"));
