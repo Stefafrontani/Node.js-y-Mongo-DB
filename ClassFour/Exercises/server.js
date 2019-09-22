@@ -28,6 +28,13 @@ app.get(['/', '/index'], (req, res) => {
   res.render('index', { showLoginForm: showLoginForm});
 })
 
+app.post('/login', (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+  
+  res.render('index');
+})
+
 const port = 3000;
 let server = app.listen(port, () => {
     console.log(`Starting server on port: ${port}`);
