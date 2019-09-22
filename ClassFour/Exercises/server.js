@@ -32,13 +32,15 @@ app.post('/login', (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
   
+  db.users.loginUser({ username, password });
   res.render('index');
 })
 
 app.post('/register', (req, res) => {
   const username = req.body.username;
-  const passwordConfirmation = req.body.passwordConfirmation;
-
+  const password = req.body.password;
+  
+  db.users.createUser({ username, password });
   res.render('index');
 })
 
