@@ -19,6 +19,16 @@ mongoClient.connect('mongodb://localhost:27017', (err, client) => {
     }
 });
 
+function getMessages(callback) {
+  messages.find().toArray((error, messages) => {
+    if (error) {
+      console.log('Error getting messages');
+    } else {
+      callback(messages); 
+    }
+  });
+}
+
 function getUsers(callback) {
   users.find().toArray((error, users) => {
     if (error) {
@@ -78,7 +88,10 @@ module.exports = {
     findUserByID,
     getUsers
   },
-  messages: {},
+  messages: {
+    getMessages,
+    createMessage
+  },
   posts: {},
   comments: {}
 }
