@@ -26,10 +26,23 @@ function findUser(username, callback) {
       callback('User not found')
     }
   });
-};
+}
+
+function createUser(newUser) {
+  const username = newUser.username;
+  findUser(username, (error, user) => {
+    if (user) {
+      console.log('User already exists')
+    } else {
+      users.insert(newUser)
+    }
+  });
+}
 
 module.exports = {
-  users: {},
+  users: {
+    createUser,
+  },
   messages: {},
   posts: {},
   comments: {}
