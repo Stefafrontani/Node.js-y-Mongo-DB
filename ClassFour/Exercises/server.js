@@ -50,6 +50,13 @@ app.get('/users', (req, res) => {
   });
 })
 
+app.get('/users/:id', (req, res) => {
+  const userId = req.params.id;
+  db.users.findUserByID(userId, (error, user) => {
+    res.render('userData', { user: user });
+  });
+})
+
 const port = 3000;
 let server = app.listen(port, () => {
     console.log(`Starting server on port: ${port}`);
