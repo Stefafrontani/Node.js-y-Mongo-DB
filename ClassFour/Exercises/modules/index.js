@@ -3,6 +3,7 @@ const mongoClient = mongoDriver.MongoClient;
 
 let users;
 let messages;
+let posts;
 
 mongoClient.connect('mongodb://localhost:27017', (err, client) => {
     if (err) {
@@ -11,10 +12,12 @@ mongoClient.connect('mongodb://localhost:27017', (err, client) => {
         let db = client.db("ClassFourExercises");
         users = db.collection('users')
         messages = db.collection('messages')
+        posts = db.collection('posts')
     }
 });
 
 module.exports = {
   users: {},
   messages: {},
+  posts: {},
 }
