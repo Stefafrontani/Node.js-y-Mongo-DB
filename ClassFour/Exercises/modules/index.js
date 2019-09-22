@@ -18,6 +18,16 @@ mongoClient.connect('mongodb://localhost:27017', (err, client) => {
     }
 });
 
+function findUser(username, callback) {
+  users.findOne({ username }, (err, user) => {
+    if (user) {
+      callback(null, user);
+    } else {
+      callback('User not found')
+    }
+  });
+};
+
 module.exports = {
   users: {},
   messages: {},
