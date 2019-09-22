@@ -23,6 +23,11 @@ app.engine('hbs', motor.engine);
 // Tell express view's engines to use hbs files
 app.set("view engine", "hbs");
 
+const showLoginForm = true;
+app.get(['/', '/index'], (req, res) => {
+  res.render('index', { showLoginForm: showLoginForm});
+})
+
 const port = 3000;
 let server = app.listen(port, () => {
     console.log(`Starting server on port: ${port}`);
