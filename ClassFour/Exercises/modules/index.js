@@ -1,5 +1,6 @@
 const mongoDriver = require('mongodb');
 const mongoClient = mongoDriver.MongoClient;
+var ObjectId = require('mongodb').ObjectID;
 
 let users;
 let messages;
@@ -24,6 +25,16 @@ function getUsers(callback) {
       console.log('Error getting users');
     } else {
       callback(users); 
+    }
+  });
+}
+
+function findUserByID(_id, callback) {
+  users.findOne({ _id: ObjectId(_id)}, (err, user) => {
+    if (user) {
+      callback(null, user);
+    } else {
+      callback('User not found')
     }
   });
 }
@@ -64,6 +75,7 @@ module.exports = {
   users: {
     createUser,
     loginUser,
+    findUserByID,
     getUsers
   },
   messages: {},
