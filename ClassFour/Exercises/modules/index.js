@@ -29,6 +29,10 @@ function getMessages(callback) {
   });
 }
 
+function createMessage(newMessage, callback) {
+  messages.insert(newMessage, () => callback());
+}
+
 function getUsers(callback) {
   users.find().toArray((error, users) => {
     if (error) {
