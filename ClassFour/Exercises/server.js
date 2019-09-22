@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
+const db = require('./modules/index');
 
 app.use(express.static("content"));
 
