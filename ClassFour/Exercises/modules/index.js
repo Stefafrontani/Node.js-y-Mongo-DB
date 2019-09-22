@@ -39,9 +39,21 @@ function createUser(newUser) {
   });
 }
 
+function loginUser(currentUser) {
+  const username = currentUser.username;
+  findUser(username, (error, user) => {
+    if (user) {
+      users.update({ username },  { "$set": { token: 'NEWTOKEN' }} )
+    } else {
+      console.log('Not user found')
+    }
+  })
+}
+
 module.exports = {
   users: {
     createUser,
+    loginUser
   },
   messages: {},
   posts: {},
