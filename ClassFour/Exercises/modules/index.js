@@ -18,6 +18,16 @@ mongoClient.connect('mongodb://localhost:27017', (err, client) => {
     }
 });
 
+function getUsers(callback) {
+  users.find().toArray((error, users) => {
+    if (error) {
+      console.log('Error getting users');
+    } else {
+      callback(users); 
+    }
+  });
+}
+
 function findUser(username, callback) {
   users.findOne({ username }, (err, user) => {
     if (user) {
@@ -53,7 +63,8 @@ function loginUser(currentUser) {
 module.exports = {
   users: {
     createUser,
-    loginUser
+    loginUser,
+    getUsers
   },
   messages: {},
   posts: {},
