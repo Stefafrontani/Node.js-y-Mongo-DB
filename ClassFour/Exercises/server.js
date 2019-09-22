@@ -35,6 +35,13 @@ app.post('/login', (req, res) => {
   res.render('index');
 })
 
+app.post('/register', (req, res) => {
+  const username = req.body.username;
+  const passwordConfirmation = req.body.passwordConfirmation;
+
+  res.render('index');
+})
+
 const port = 3000;
 let server = app.listen(port, () => {
     console.log(`Starting server on port: ${port}`);
