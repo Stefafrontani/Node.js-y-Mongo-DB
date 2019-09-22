@@ -1,0 +1,58 @@
+<div style="display: flex; flex-direction: row">
+  <a href="/"> Go home </a>
+  
+  <div style="padding: 10px; margin: 10px;">
+    <h1> USERS HERE </h1>
+    {{#if users}}
+      <ul>
+        {{#each users }}
+          {{> user this }}
+        {{/each}}
+      </ul>
+    {{else}}
+      <p> There are no users </p>
+    {{/if}}
+  </div>
+
+  <div style="padding: 10px; margin: 10px;">
+    <h1> MESSAGES HERE </h1>
+    {{#if messages}}
+      <ul>
+        {{#each messages }}
+          {{> message this }}
+        {{/each}}
+      </ul>
+    {{else}}
+      <p> There are no messages </p>
+    {{/if}}
+  </div>
+
+  <div style="padding: 10px; margin: 10px;">
+    <h1> Send text </h1>
+    <form method="POST" action="messages">
+      
+      <div style="display: flex">
+        <div>
+          <label for="senderId"> FROM </label>
+          <select type="text" name="senderId" placeholder="Who are you?" />
+            {{#each users }}
+              <option value='{{this._id}}'> {{this.username}} </option>
+            {{/each}}
+          <select><br>
+        </div>
+
+        <div>
+          <label for="receiverId"> TO </label>
+          <select type="text" name="receiverId" placeholder="Who are you?" />
+            {{#each users }}
+              <option value='{{this._id}}'> {{this.username}} </option>
+            {{/each}}
+          <select><br>
+        </div>
+      </div>
+
+      <input type="text" name="text" placeholder="text..." /><br>
+      <input type="submit" />
+    </form>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<section id="home" class="center">
+  <div>
+    <a href="/users"> See users</a>
+  </div>
+  {{#if showLoginForm}}
+    {{> loginForm }}
+  {{else}}
+    {{> registerForm }}
+  {{/if}}
+</section>
