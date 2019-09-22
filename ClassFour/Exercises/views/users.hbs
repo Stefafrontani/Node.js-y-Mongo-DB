@@ -1,0 +1,12 @@
+<div>
+  <a href="/"> Go home </a>
+  {{#if users}}
+    <ul>
+      {{#each users }}
+        {{> user this }}
+      {{/each}}
+    </ul>
+  {{else}}
+    <p> There are no users </p>
+  {{/if}}
+</div>
