@@ -65,6 +65,19 @@ app.get('/messages', (req, res) => {
   });
 });
 
+app.post('/messages', (req, res) => {
+  const text = req.body.text;
+  const senderId = req.body.senderId;
+  const receiverId = req.body.receiverId;
+  db.messages.createMessage(({ text, senderId, receiverId }), () => {
+    db.users.getUsers((users) => {
+      db.messages.getMessages((messages) => {
+        res.render('messages', { users, messages });
+      });
+    });
+  });
+})
+
 const port = 3000;
 let server = app.listen(port, () => {
     console.log(`Starting server on port: ${port}`);
