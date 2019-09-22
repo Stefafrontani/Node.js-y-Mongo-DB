@@ -1,0 +1,10 @@
+<a href="/"> Go home </a>
+<a href="/"> See users </a>
+{{#if user}}
+<div>
+  <h1> This is user {{ user.username}} </h1>
+  <p> ID nº: {{ user._id }} </p>
+</div>
+{{else}}
+  <h1>NO USER</h1>
+{{/if}}
