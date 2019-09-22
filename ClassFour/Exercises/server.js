@@ -44,6 +44,12 @@ app.post('/register', (req, res) => {
   res.render('index');
 })
 
+app.get('/users', (req, res) => {
+  db.users.getUsers((users) => {
+    res.render('users', { users });
+  });
+})
+
 const port = 3000;
 let server = app.listen(port, () => {
     console.log(`Starting server on port: ${port}`);
